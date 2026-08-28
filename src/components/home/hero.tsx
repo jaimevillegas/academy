@@ -17,8 +17,8 @@ const viewportStats = [
 
 export function Hero() {
   return (
-    <section className="flex h-[620px] w-full border-b border-[var(--grid)]">
-      <div className="flex h-full w-[640px] flex-col justify-between border-r border-[var(--grid)] px-[48px] py-[56px]">
+    <section className="flex w-full flex-col border-b border-[var(--grid)] lg:h-[620px] lg:flex-row">
+      <div className="flex w-full flex-col justify-between gap-[40px] border-b border-[var(--grid)] px-page py-[40px] lg:h-full lg:w-[560px] lg:gap-0 lg:border-b-0 lg:border-r lg:py-[56px] xl:w-[640px]">
         <div className="flex flex-col gap-[26px]">
           <div className="flex items-center gap-[10px]">
             <span className="h-px w-[28px] bg-[var(--phosphor)]" />
@@ -27,7 +27,7 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="text-[60px] font-semibold leading-[1.02] tracking-[-1.5px] text-[var(--text)]">
+          <h1 className="text-[38px] font-semibold leading-[1.05] tracking-[-1px] text-[var(--text)] md:text-[48px] lg:text-[52px] xl:text-[60px] xl:leading-[1.02] xl:tracking-[-1.5px]">
             Ingeniería enseñada
             <br />
             como se ejecuta.
@@ -39,7 +39,7 @@ export function Hero() {
             una pieza manufacturable, una PCB ruteada, un modelo BIM coordinado.
           </p>
 
-          <div className="flex items-center gap-[12px]">
+          <div className="flex flex-wrap items-center gap-[12px]">
             <Link
               href="/catalogo"
               className="flex items-center gap-[9px] bg-[var(--phosphor)] px-[26px] py-[15px] font-mono-plex text-[12px] font-semibold tracking-[0.8px] text-[var(--chassis)] transition-instrument hover:bg-[var(--text)]"
@@ -71,7 +71,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative flex h-full flex-1 flex-col justify-between overflow-hidden bg-[var(--panel)] p-[16px]">
+      <div className="relative flex h-[320px] w-full flex-col justify-between overflow-hidden bg-[var(--panel)] p-[16px] md:h-[420px] lg:h-full lg:flex-1">
         <Image
           src="/renders/hero-gearbox.png"
           alt="Ensamble de reductor en visor 3D"
@@ -132,7 +132,7 @@ export function Hero() {
               </div>
             ))}
           </dl>
-          <span className="font-mono-plex text-[10px] tracking-[0.8px] text-[var(--text-faint)]">
+          <span className="hidden font-mono-plex text-[10px] tracking-[0.8px] text-[var(--text-faint)] sm:block">
             ENSAMBLE_REDUCTOR_V4.GLB
           </span>
         </div>

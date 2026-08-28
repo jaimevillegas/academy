@@ -30,12 +30,12 @@ export default function PathsPage() {
       <Navbar />
 
       <main className="flex w-full flex-col">
-        <header className="flex items-end justify-between border-b border-[var(--grid)] px-[48px] py-[40px]">
-          <div className="flex w-[720px] flex-col gap-[12px]">
+        <header className="flex flex-col gap-[16px] border-b border-[var(--grid)] px-page py-[32px] lg:flex-row lg:items-end lg:justify-between xl:py-[40px]">
+          <div className="flex flex-col gap-[12px] lg:max-w-[720px]">
             <span className="font-mono-plex text-[11px] tracking-[1.4px] text-[var(--amber)]">
               RUTAS DE FORMACIÓN · {learningPaths.length} SECUENCIAS
             </span>
-            <h1 className="text-[44px] font-semibold leading-[1.1] tracking-[-1.2px] text-[var(--text)]">
+            <h1 className="text-[32px] font-semibold leading-[1.1] tracking-[-0.8px] text-[var(--text)] md:text-[38px] xl:text-[44px] xl:tracking-[-1.2px]">
               Rutas
             </h1>
             <p className="text-[15px] leading-[1.6] text-[var(--text-dim)]">
@@ -54,16 +54,16 @@ export default function PathsPage() {
           return (
             <section
               key={path.code}
-              className="flex border-b border-[var(--grid)]"
+              className="flex flex-col border-b border-[var(--grid)] lg:flex-row"
             >
-              <div className="flex w-[440px] flex-col gap-[16px] border-r border-[var(--grid)] bg-[var(--panel)] px-[48px] py-[40px]">
+              <div className="flex flex-col gap-[16px] border-b border-[var(--grid)] bg-[var(--panel)] px-page py-[32px] lg:w-[380px] lg:border-b-0 lg:border-r xl:w-[440px] xl:py-[40px]">
                 <span
                   className="font-mono-plex text-[11px] tracking-[1.4px]"
                   style={{ color: accent }}
                 >
                   {path.code}
                 </span>
-                <h2 className="text-[28px] font-semibold leading-[1.15] tracking-[-0.6px] text-[var(--text)]">
+                <h2 className="text-[24px] font-semibold leading-[1.15] tracking-[-0.6px] text-[var(--text)] md:text-[28px]">
                   {path.title}
                 </h2>
                 <p className="text-[14px] leading-[1.6] text-[var(--text-dim)]">
@@ -90,7 +90,7 @@ export default function PathsPage() {
               </div>
 
               <ol className="flex flex-1 flex-col">
-                <li className="flex h-[34px] items-center border-b border-[var(--grid)] bg-[var(--chassis)] px-[32px] font-mono-plex text-[9.5px] tracking-[1px] text-[var(--text-faint)]">
+                <li className="hidden h-[34px] items-center border-b border-[var(--grid)] bg-[var(--chassis)] px-[20px] font-mono-plex text-[9.5px] tracking-[1px] text-[var(--text-faint)] md:flex xl:px-[32px]">
                   <span className="w-[40px]">PASO</span>
                   <span className="w-[90px]">CÓDIGO</span>
                   <span className="flex-1">UNIDAD</span>
@@ -116,7 +116,7 @@ export default function PathsPage() {
                       <span className="flex-1 text-[14px] text-[var(--text)]">
                         {course ? course.title : "Unidad en preparación"}
                       </span>
-                      <span className="w-[120px] font-mono-plex text-[10px] tracking-[0.6px] text-[var(--text-faint)]">
+                      <span className="hidden w-[120px] font-mono-plex text-[10px] tracking-[0.6px] text-[var(--text-faint)] md:block">
                         {course ? course.difficultyLevel : "—"}
                       </span>
                       <span className="w-[70px] font-mono-plex text-[11px] text-[var(--text-dim)]">
@@ -148,12 +148,12 @@ export default function PathsPage() {
                       {course ? (
                         <Link
                           href={"/catalogo/" + course.slug}
-                          className="flex min-h-[56px] items-center px-[32px] py-[10px] transition-instrument hover:bg-[var(--panel)]"
+                          className="flex min-h-[56px] items-center gap-[8px] px-[20px] py-[10px] transition-instrument hover:bg-[var(--panel)] xl:px-[32px]"
                         >
                           {row}
                         </Link>
                       ) : (
-                        <div className="flex min-h-[56px] items-center px-[32px] py-[10px] opacity-60">
+                        <div className="flex min-h-[56px] items-center gap-[8px] px-[20px] py-[10px] opacity-60 xl:px-[32px]">
                           {row}
                         </div>
                       )}

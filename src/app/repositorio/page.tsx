@@ -32,7 +32,7 @@ export default function RepositoryPage() {
       <Navbar />
 
       <main className="flex w-full flex-col">
-        <header className="flex items-end justify-between border-b border-[var(--grid)] px-[48px] py-[40px]">
+        <header className="flex items-end justify-between border-b border-[var(--grid)] px-page py-[40px]">
           <div className="flex w-[720px] flex-col gap-[12px]">
             <span className="font-mono-plex text-[11px] tracking-[1.4px] text-[var(--cyan)]">
               BASE DE CONOCIMIENTO

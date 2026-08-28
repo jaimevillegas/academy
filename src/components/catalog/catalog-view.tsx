@@ -82,14 +82,14 @@ function FilterRow({
   return (
     <div
       className={
-        "flex h-[48px] items-center gap-[16px] px-[48px] " +
+        "flex min-h-[48px] flex-wrap items-center gap-x-[16px] gap-y-[10px] px-page py-[12px] md:py-0 " +
         (last ? "" : "border-b border-[var(--grid-soft)]")
       }
     >
-      <span className="w-[110px] font-mono-plex text-[10px] tracking-[1px] text-[var(--text-faint)]">
+      <span className="w-full font-mono-plex text-[10px] tracking-[1px] text-[var(--text-faint)] md:w-[110px]">
         {label}
       </span>
-      <div className="flex items-center gap-[8px]">{children}</div>
+      <div className="flex flex-wrap items-center gap-[8px]">{children}</div>
     </div>
   );
 }
@@ -163,16 +163,16 @@ export function CatalogView({ courses }: { courses: Course[] }) {
 
   return (
     <>
-      <header className="flex items-end justify-between border-b border-[var(--grid)] px-[48px] py-[40px]">
-        <div className="flex w-[640px] flex-col gap-[12px]">
+      <header className="flex flex-col gap-[20px] border-b border-[var(--grid)] px-page py-[32px] md:flex-row md:items-end md:justify-between xl:py-[40px]">
+        <div className="flex flex-col gap-[12px] md:max-w-[640px]">
           <span className="font-mono-plex text-[11px] tracking-[1.4px] text-[var(--phosphor)]">
             ÍNDICE DE UNIDADES · {courses.length} REGISTROS
           </span>
-          <h1 className="text-[44px] font-semibold leading-[1.1] tracking-[-1.2px] text-[var(--text)]">
+          <h1 className="text-[32px] font-semibold leading-[1.1] tracking-[-0.8px] text-[var(--text)] md:text-[38px] xl:text-[44px] xl:tracking-[-1.2px]">
             Catálogo técnico
           </h1>
         </div>
-        <div className="flex h-[44px] w-[360px] items-center gap-[10px] border border-[var(--grid)] bg-[var(--panel)] px-[14px] transition-instrument focus-within:border-[var(--phosphor)]">
+        <div className="flex h-[44px] w-full items-center gap-[10px] border border-[var(--grid)] bg-[var(--panel)] px-[14px] transition-instrument focus-within:border-[var(--phosphor)] md:w-[320px] xl:w-[360px]">
           <Search size={15} strokeWidth={1.5} className="text-[var(--text-faint)]" />
           <input
             type="search"
@@ -246,7 +246,7 @@ export function CatalogView({ courses }: { courses: Course[] }) {
         </FilterRow>
       </section>
 
-      <div className="flex h-[44px] items-center justify-between border-b border-[var(--grid)] px-[48px]">
+      <div className="flex flex-col gap-[10px] border-b border-[var(--grid)] px-page py-[12px] md:h-[44px] md:flex-row md:items-center md:justify-between md:py-0">
         <div className="flex items-center gap-[16px]">
           <span className="font-mono-plex text-[11px] tracking-[0.8px] text-[var(--text)]">
             {filtered.length} RESULTADOS
@@ -269,7 +269,7 @@ export function CatalogView({ courses }: { courses: Course[] }) {
           )}
         </div>
 
-        <div className="flex items-center gap-[10px]">
+        <div className="flex flex-wrap items-center gap-[10px]">
           <span className="font-mono-plex text-[11px] tracking-[0.8px] text-[var(--text-faint)]">
             ORDENAR:
           </span>
@@ -294,15 +294,15 @@ export function CatalogView({ courses }: { courses: Course[] }) {
         </div>
       </div>
 
-      <div className="px-[48px] py-[36px]">
+      <div className="px-page py-[36px]">
         {visible.length > 0 ? (
-          <div className="grid grid-cols-3 gap-[20px]">
+          <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 xl:grid-cols-3">
             {visible.map((course) => (
               <CourseCard key={course.courseCode} course={course} />
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center gap-[12px] border border-[var(--grid)] bg-[var(--panel)] px-[48px] py-[64px]">
+          <div className="flex flex-col items-center gap-[12px] border border-[var(--grid)] bg-[var(--panel)] px-page py-[64px]">
             <span className="font-mono-plex text-[11px] tracking-[1.4px] text-[var(--amber)]">
               SIN COINCIDENCIAS
             </span>
@@ -321,7 +321,7 @@ export function CatalogView({ courses }: { courses: Course[] }) {
         )}
       </div>
 
-      <div className="flex h-[56px] items-center justify-between border-t border-[var(--grid)] px-[48px]">
+      <div className="flex flex-col gap-[12px] border-t border-[var(--grid)] px-page py-[16px] sm:h-[56px] sm:flex-row sm:items-center sm:justify-between sm:py-0">
         <span className="font-mono-plex text-[10px] tracking-[0.8px] text-[var(--text-faint)]">
           REGISTROS {String(rangeStart).padStart(2, "0")}–
           {String(rangeEnd).padStart(2, "0")} DE {filtered.length}

@@ -66,7 +66,7 @@ export default async function CoursePage({
       <main className="flex w-full flex-col">
         <nav
           aria-label="Migas de pan"
-          className="flex h-[36px] items-center gap-[10px] border-b border-[var(--grid)] px-[48px] font-mono-plex text-[10px] tracking-[0.8px]"
+          className="flex h-[36px] items-center gap-[10px] overflow-x-auto whitespace-nowrap border-b border-[var(--grid)] px-page font-mono-plex text-[10px] tracking-[0.8px]"
         >
           <Link
             href="/catalogo"
@@ -80,9 +80,9 @@ export default async function CoursePage({
           <span className="text-[var(--text-dim)]">{course.courseCode}</span>
         </nav>
 
-        <header className="flex items-end justify-between gap-[48px] border-b border-[var(--grid)] px-[48px] py-[36px]">
-          <div className="flex w-[760px] flex-col gap-[16px]">
-            <div className="flex items-center gap-[8px]">
+        <header className="flex flex-col gap-[24px] border-b border-[var(--grid)] px-page py-[28px] lg:flex-row lg:items-end lg:justify-between lg:gap-[48px] xl:py-[36px]">
+          <div className="flex flex-col gap-[16px] lg:max-w-[760px]">
+            <div className="flex flex-wrap items-center gap-[8px]">
               {chips.map((chip) => (
                 <span
                   key={chip.label}
@@ -97,7 +97,7 @@ export default async function CoursePage({
                 </span>
               ))}
             </div>
-            <h1 className="text-[44px] font-semibold leading-[1.08] tracking-[-1.2px] text-[var(--text)]">
+            <h1 className="text-[30px] font-semibold leading-[1.1] tracking-[-0.8px] text-[var(--text)] md:text-[36px] xl:text-[44px] xl:leading-[1.08] xl:tracking-[-1.2px]">
               {course.title}
             </h1>
             <p className="text-[15px] leading-[1.6] text-[var(--text-dim)]">
@@ -105,7 +105,7 @@ export default async function CoursePage({
             </p>
           </div>
 
-          <dl className="flex border border-[var(--grid)]">
+          <dl className="flex w-fit border border-[var(--grid)]">
             {stats.map((stat, index) => (
               <div
                 key={stat.key}
@@ -133,7 +133,7 @@ export default async function CoursePage({
           resourceCount={resources.length}
         />
 
-        <div className="flex border-b border-[var(--grid)]">
+        <div className="flex flex-col border-b border-[var(--grid)] lg:flex-row">
           <SyllabusAccordion modules={modules} />
           <DependencyTree
             course={course}

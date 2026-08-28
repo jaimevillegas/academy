@@ -2,18 +2,15 @@ import { authorityMetrics } from "@/data/paths";
 
 export function MetricsStrip() {
   return (
-    <section className="flex w-full border-b border-[var(--grid)]">
-      {authorityMetrics.map((metric, index) => (
+    // La retícula se dibuja con gap-px sobre el color de borde: así las líneas
+    // siguen siendo de 1px al reflowar de 2 a 4 columnas.
+    <section className="grid w-full grid-cols-2 gap-px border-b border-[var(--grid)] bg-[var(--grid)] lg:grid-cols-4">
+      {authorityMetrics.map((metric) => (
         <div
           key={metric.label}
-          className={
-            "flex flex-1 flex-col gap-[8px] px-[32px] py-[30px] " +
-            (index < authorityMetrics.length - 1
-              ? "border-r border-[var(--grid)]"
-              : "")
-          }
+          className="flex flex-col gap-[8px] bg-[var(--chassis)] px-[20px] py-[24px] md:px-[32px] md:py-[30px]"
         >
-          <span className="font-mono-plex text-[40px] font-medium tracking-[-1px] text-[var(--text)]">
+          <span className="font-mono-plex text-[30px] font-medium tracking-[-1px] text-[var(--text)] md:text-[36px] xl:text-[40px]">
             {metric.value}
           </span>
           <span className="font-mono-plex text-[10px] leading-[1.4] tracking-[0.9px] text-[var(--text-dim)]">

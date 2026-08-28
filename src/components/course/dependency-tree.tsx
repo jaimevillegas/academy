@@ -84,7 +84,7 @@ export function DependencyTree({
   }
 
   return (
-    <aside className="flex w-[440px] flex-col gap-[24px] bg-[var(--panel)] px-[32px] py-[40px]">
+    <aside className="flex w-full flex-col gap-[24px] bg-[var(--panel)] px-page py-[32px] lg:w-[380px] lg:px-[24px] xl:w-[440px] xl:px-[32px] xl:py-[40px]">
       <header className="flex flex-col gap-[8px]">
         <span className="font-mono-plex text-[11px] tracking-[1.4px] text-[var(--cyan)]">
           ÁRBOL DE DEPENDENCIAS

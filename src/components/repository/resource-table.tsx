@@ -39,11 +39,11 @@ export function ResourceTable({ resources }: { resources: Resource[] }) {
 
   return (
     <>
-      <div className="flex h-[48px] items-center gap-[16px] border-b border-[var(--grid)] bg-[var(--panel)] px-[48px]">
-        <span className="w-[110px] font-mono-plex text-[10px] tracking-[1px] text-[var(--text-faint)]">
+      <div className="flex min-h-[48px] flex-wrap items-center gap-x-[16px] gap-y-[10px] border-b border-[var(--grid)] bg-[var(--panel)] px-page py-[12px] md:py-0">
+        <span className="w-full font-mono-plex text-[10px] tracking-[1px] text-[var(--text-faint)] md:w-[110px]">
           TIPO
         </span>
-        <div className="flex items-center gap-[8px]">
+        <div className="flex flex-wrap items-center gap-[8px]">
           <button
             type="button"
             onClick={() => setTypes([])}
@@ -78,7 +78,7 @@ export function ResourceTable({ resources }: { resources: Resource[] }) {
           })}
         </div>
 
-        <div className="ml-auto flex h-[32px] w-[320px] items-center gap-[10px] border border-[var(--grid)] bg-[var(--chassis)] px-[12px] transition-instrument focus-within:border-[var(--cyan)]">
+        <div className="flex h-[32px] w-full items-center gap-[10px] border border-[var(--grid)] bg-[var(--chassis)] px-[12px] transition-instrument focus-within:border-[var(--cyan)] lg:ml-auto lg:w-[320px]">
           <Search
             size={13}
             strokeWidth={1.5}
@@ -95,20 +95,20 @@ export function ResourceTable({ resources }: { resources: Resource[] }) {
         </div>
       </div>
 
-      <div className="flex h-[34px] items-center border-b border-[var(--grid)] bg-[var(--chassis)] px-[48px] font-mono-plex text-[9.5px] tracking-[1px] text-[var(--text-faint)]">
-        <span className="w-[90px]">TIPO</span>
+      <div className="flex h-[34px] items-center border-b border-[var(--grid)] bg-[var(--chassis)] px-page font-mono-plex text-[9.5px] tracking-[1px] text-[var(--text-faint)]">
+        <span className="w-[70px] xl:w-[90px]">TIPO</span>
         <span className="flex-1">RECURSO</span>
-        <span className="w-[200px]">CURSOS VINCULADOS</span>
-        <span className="w-[90px]">PESO</span>
+        <span className="hidden w-[200px] lg:block">CURSOS VINCULADOS</span>
+        <span className="w-[80px] text-right sm:text-left xl:w-[90px]">PESO</span>
       </div>
 
       {filtered.map((resource) => (
         <a
           key={resource.id}
           href={resource.urlOrPath}
-          className="flex h-[52px] items-center border-b border-[var(--grid-soft)] px-[48px] transition-instrument hover:bg-[var(--panel)]"
+          className="flex min-h-[52px] items-center gap-[8px] border-b border-[var(--grid-soft)] px-page py-[10px] transition-instrument hover:bg-[var(--panel)]"
         >
-          <span className="w-[90px]">
+          <span className="w-[70px] shrink-0 xl:w-[90px]">
             <span
               className="border px-[7px] py-[3px] font-mono-plex text-[9.5px] tracking-[0.8px]"
               style={{
@@ -122,17 +122,17 @@ export function ResourceTable({ resources }: { resources: Resource[] }) {
           <span className="flex-1 text-[14px] text-[var(--text)]">
             {resource.title}
           </span>
-          <span className="w-[200px] font-mono-plex text-[11px] text-[var(--text-dim)]">
+          <span className="hidden w-[200px] font-mono-plex text-[11px] text-[var(--text-dim)] lg:block">
             {resource.courseCodes.join(" · ")}
           </span>
-          <span className="w-[90px] font-mono-plex text-[11px] text-[var(--text-faint)]">
+          <span className="w-[80px] shrink-0 text-right font-mono-plex text-[11px] text-[var(--text-faint)] sm:text-left xl:w-[90px]">
             {resource.size}
           </span>
         </a>
       ))}
 
       {filtered.length === 0 && (
-        <div className="flex flex-col items-center gap-[10px] px-[48px] py-[56px]">
+        <div className="flex flex-col items-center gap-[10px] px-page py-[56px]">
           <span className="font-mono-plex text-[11px] tracking-[1.4px] text-[var(--amber)]">
             SIN COINCIDENCIAS
           </span>
@@ -142,7 +142,7 @@ export function ResourceTable({ resources }: { resources: Resource[] }) {
         </div>
       )}
 
-      <div className="flex h-[44px] items-center justify-between px-[48px]">
+      <div className="flex flex-col gap-[6px] px-page py-[12px] sm:h-[44px] sm:flex-row sm:items-center sm:justify-between sm:py-0">
         <span className="font-mono-plex text-[10px] tracking-[0.6px] text-[var(--text-faint)]">
           MOSTRANDO {filtered.length} DE {resources.length} REGISTROS
         </span>

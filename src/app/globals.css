@@ -55,4 +55,21 @@
     transition-duration: var(--duration-base);
     transition-timing-function: var(--ease-instrument);
   }
+
+  /* Margen lateral de página. Escala hasta los 48px del diseño en desktop. */
+  .px-page {
+    padding-inline: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .px-page {
+      padding-inline: 32px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .px-page {
+      padding-inline: 48px;
+    }
+  }
 }

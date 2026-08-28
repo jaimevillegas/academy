@@ -24,6 +24,8 @@ interface CatalogFiltersState {
   page: number;
   setQuery: (query: string) => void;
   toggleDiscipline: (value: Discipline) => void;
+  /** Selección exclusiva, usada por los enlaces profundos ?disciplina= */
+  applyDiscipline: (value: Discipline) => void;
   toggleLevel: (value: DifficultyLevel) => void;
   toggleStatus: (value: CourseStatus) => void;
   toggleSoftware: (value: SoftwareTag) => void;
@@ -50,6 +52,7 @@ export const useCatalogFilters = create<CatalogFiltersState>((set) => ({
       disciplines: toggleValue(state.disciplines, value),
       page: 1,
     })),
+  applyDiscipline: (value) => set({ disciplines: [value], page: 1 }),
   toggleLevel: (value) =>
     set((state) => ({ levels: toggleValue(state.levels, value), page: 1 })),
   toggleStatus: (value) =>

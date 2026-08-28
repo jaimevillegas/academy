@@ -61,8 +61,8 @@ export function Inspection({
   ];
 
   return (
-    <section className="flex h-[680px] w-full border-b border-[var(--grid)]">
-      <div className="relative flex h-full flex-1 flex-col justify-between overflow-hidden border-r border-[var(--grid)] bg-[var(--panel)] p-[18px]">
+    <section className="flex w-full flex-col border-b border-[var(--grid)] lg:h-[680px] lg:flex-row">
+      <div className="relative flex h-[340px] w-full flex-col justify-between overflow-hidden border-b border-[var(--grid)] bg-[var(--panel)] p-[14px] md:h-[460px] lg:h-full lg:flex-1 lg:border-b-0 lg:border-r lg:p-[18px]">
         <Image
           src={course.canvasUrl ?? course.renderUrl}
           alt={"Modelo 3D del entregable de " + course.courseCode}
@@ -126,13 +126,13 @@ export function Inspection({
               </div>
             ))}
           </dl>
-          <span className="font-mono-plex text-[9.5px] tracking-[0.8px] text-[var(--text-faint)]">
+          <span className="hidden font-mono-plex text-[9.5px] tracking-[0.8px] text-[var(--text-faint)] xl:block">
             ARRASTRAR PARA ORBITAR · SCROLL PARA ZOOM
           </span>
         </div>
       </div>
 
-      <aside className="flex h-full w-[460px] flex-col bg-[var(--chassis)]">
+      <aside className="flex w-full flex-col bg-[var(--chassis)] lg:h-full lg:w-[400px] xl:w-[460px]">
         <div className="flex h-[34px] items-center justify-between border-b border-[var(--grid)] bg-[var(--panel)] px-[20px]">
           <span className="font-mono-plex text-[10px] tracking-[1.4px] text-[var(--text-dim)]">
             BRIEFING
@@ -179,7 +179,7 @@ export function Inspection({
             <div
               key={row.key}
               className={
-                "flex h-[30px] items-center justify-between gap-[16px] " +
+                "flex min-h-[30px] items-center justify-between gap-[16px] py-[4px] md:py-0 " +
                 (index < metadata.length - 1
                   ? "border-b border-[var(--grid-soft)]"
                   : "")
@@ -190,7 +190,7 @@ export function Inspection({
               </dt>
               <dd
                 className={
-                  "font-mono-plex text-[11px] " +
+                  "text-right font-mono-plex text-[11px] " +
                   (row.accent
                     ? "text-[var(--phosphor)]"
                     : "text-[var(--text-dim)]")

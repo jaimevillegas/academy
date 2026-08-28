@@ -15,16 +15,16 @@ const columns = [
   {
     title: "DISCIPLINAS",
     links: [
-      { label: "Mecánica / CAD", href: "/catalogo?disciplina=MECANICA_CAD" },
+      { label: "Mecánica / CAD", href: "/catalogo?disciplina=mecanica-cad" },
       {
         label: "Electrónica / EDA",
-        href: "/catalogo?disciplina=ELECTRONICA_EDA",
+        href: "/catalogo?disciplina=electronica-eda",
       },
       {
         label: "Arquitectura / BIM",
-        href: "/catalogo?disciplina=ARQUITECTURA_BIM",
+        href: "/catalogo?disciplina=arquitectura-bim",
       },
-      { label: "Manufactura", href: "/catalogo?disciplina=MANUFACTURA" },
+      { label: "Manufactura", href: "/catalogo?disciplina=manufactura" },
     ],
   },
   {
@@ -50,8 +50,8 @@ const legalFlags = ["PRIVACIDAD", "TÉRMINOS", "REV 1.0.0"];
 export function Footer() {
   return (
     <footer className="w-full border-t border-[var(--grid)] bg-[var(--chassis)]">
-      <div className="flex gap-[64px] border-b border-[var(--grid)] px-[48px] py-[48px]">
-        <div className="flex w-[380px] flex-col gap-[16px]">
+      <div className="flex flex-col gap-[32px] border-b border-[var(--grid)] px-page py-[40px] lg:flex-row lg:gap-[64px] lg:py-[48px]">
+        <div className="flex flex-col gap-[16px] lg:w-[380px]">
           <span className="font-mono-plex text-[15px] font-semibold tracking-[0.8px] text-[var(--text)]">
             VILLEGAS_ACADEMIA
           </span>
@@ -79,25 +79,27 @@ export function Footer() {
           </div>
         </div>
 
-        {columns.map((column) => (
-          <div key={column.title} className="flex flex-1 flex-col gap-[14px]">
-            <span className="font-mono-plex text-[10px] tracking-[1.2px] text-[var(--text-faint)]">
-              {column.title}
-            </span>
-            {column.links.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[13px] text-[var(--text-dim)] transition-instrument hover:text-[var(--text)]"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        ))}
+        <div className="grid grid-cols-2 gap-[28px] sm:grid-cols-3 lg:flex lg:flex-1 lg:gap-[64px]">
+          {columns.map((column) => (
+            <div key={column.title} className="flex flex-1 flex-col gap-[14px]">
+              <span className="font-mono-plex text-[10px] tracking-[1.2px] text-[var(--text-faint)]">
+                {column.title}
+              </span>
+              {column.links.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-[13px] text-[var(--text-dim)] transition-instrument hover:text-[var(--text)]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="flex h-[44px] items-center justify-between px-[48px]">
+      <div className="flex flex-col gap-[8px] px-page py-[14px] md:h-[44px] md:flex-row md:items-center md:justify-between md:py-0">
         <span className="font-mono-plex text-[10px] tracking-[0.6px] text-[var(--text-faint)]">
           © 2026 VILLEGAS_ACADEMIA · TODOS LOS DERECHOS RESERVADOS
         </span>
