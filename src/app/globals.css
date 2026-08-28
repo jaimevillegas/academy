@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* Tokens de diseño — sincronizados con docs/design.pen */
+:root {
+  --chassis: #0a0a0a;
+  --panel: #141414;
+  --panel-raised: #1c1c1c;
+  --grid: #333333;
+  --grid-soft: #242424;
+  --phosphor: #00ff41;
+  --cyan: #00e5ff;
+  --amber: #ffb000;
+  --text: #f3f4f6;
+  --text-dim: #9ca3af;
+  --text-faint: #5a5a5a;
+
+  /* Movimiento: mecánico, seco, sin rebotes */
+  --ease-instrument: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 100ms;
+  --duration-base: 150ms;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    background: var(--chassis);
+    color: var(--text);
+  }
+
+  /* Geometría estricta: esquinas vivas en todo el sistema */
+  button,
+  input,
+  select,
+  textarea {
+    border-radius: 0;
+  }
+
+  .font-sans-plex {
+    font-family: var(--font-plex-sans), "IBM Plex Sans", sans-serif;
+  }
+
+  .font-mono-plex {
+    font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  }
+}
+
+@layer utilities {
+  /* Transición de confirmación de estado */
+  .transition-instrument {
+    transition-property: color, background-color, border-color, opacity;
+    transition-duration: var(--duration-base);
+    transition-timing-function: var(--ease-instrument);
+  }
+}
